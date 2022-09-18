@@ -1,11 +1,9 @@
-
-
 import Page from './page';
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+export default class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -25,10 +23,6 @@ class LoginPage extends Page {
         return $('#login-form__password-forgotten-button');
     }
 
-    get cookieBtn () {
-        return $('#cookie-consent-button');
-    }
-
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -39,10 +33,8 @@ class LoginPage extends Page {
         await this.loginBnt.click();
     }
 
-    async clearCookies(){
-        await this.cookieBtn.click();
+    open () {
+        return super.open();
     }
 
 }
-
-export default new LoginPage();
